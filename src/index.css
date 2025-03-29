@@ -1,0 +1,5 @@
+@import "./theme/index.css";
+
+body {
+  font-family: "General", sans-serif;
+}

@@ -1,0 +1,26 @@
+@layer base {
+  @font-face {
+    font-family: "Circular Web";
+    src: url("/fonts/circularweb-book.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "General";
+    src: url("/fonts/general.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Robert Medium";
+    src: url("/fonts/robert-medium.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Robert Regular";
+    src: url("/fonts/robert-regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Zentry";
+    src: url("/fonts/zentry-regular.woff2") format("woff2");
+  }
+}
