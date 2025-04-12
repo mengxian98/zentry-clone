@@ -5,11 +5,19 @@
     @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
   }
 
+  .hero-heading {
+    @apply text-[180px] font-zentry uppercase leading-none;
+  }
+
   .video-center {
     @apply origin-center object-cover object-center;
   }
 
   .mask-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .special-font b {
+    font-feature-settings: "ss01" on;
   }
 }
