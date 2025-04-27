@@ -72,6 +72,7 @@ const Hero = () => {
         <video
           loop
           autoPlay
+          muted
           className="size-full video-center"
           src={`/videos/hero-${currentVideoIndex}.mp4`}
         />
@@ -79,6 +80,7 @@ const Hero = () => {
         <video
           loop
           autoPlay
+          muted
           ref={nextVideoPlayerRef}
           className="size-full absolute top-0 left-0 video-center invisible"
           src={`/videos/hero-${currentVideoIndex}.mp4`}
