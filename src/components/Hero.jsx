@@ -67,7 +67,7 @@ const Hero = () => {
   });
 
   return (
-    <section>
+    <div>
       <div ref={videoFrameRef} className="relative h-screen w-full z-5">
         <video
           loop
@@ -82,7 +82,7 @@ const Hero = () => {
           autoPlay
           muted
           ref={nextVideoPlayerRef}
-          className="size-full absolute top-0 left-0 video-center invisible"
+          className="size-full video-center absolute top-0 left-0 invisible"
           src={`/videos/hero-${currentVideoIndex}.mp4`}
         />
 
@@ -98,7 +98,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="absolute top-0 left-0 px-12 mt-28 z-50">
+        <section className="absolute top-0 left-0 px-12 mt-28 z-50">
           <h1 className="hero-heading special-font text-blue-100">
             Redefi<b>n</b>e
           </h1>
@@ -108,7 +108,7 @@ const Hero = () => {
             Command your fleet - the war for stars begin now!
           </p>
           <Button buttonClass="bg-yellow-300" text="Watch Trailer" />
-        </div>
+        </section>
 
         <div className="absolute bottom-5 right-12 z-50">
           <h2 className="hero-heading special-font text-blue-75">
@@ -121,7 +121,7 @@ const Hero = () => {
           G<b>a</b>ming
         </h2>
       </div>
-    </section>
+    </div>
   );
 };
 
