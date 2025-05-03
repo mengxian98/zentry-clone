@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import AnimatedTitle from "./shared/AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,16 +31,10 @@ const About = () => {
   return (
     <div className="min-h-screen w-full">
       <div className="flex flex-col items-center justify-between text-center pt-56">
-        <div className="uppercase">
-          <p className="font-general text-[8px] tracking-wider mb-8">
-            Welcome to Zentry
-          </p>
-          <h3 className="font-zentry text-5xl md:text-8xl">
-            Discover the world's
-            <br />
-            largest shared adventure
-          </h3>
-        </div>
+        <AnimatedTitle
+          caption="Welcome to Zentry"
+          title="Disc<b>o</b>ver the world's<br />largest shared <b>a</b>dventure"
+        />
         <div ref={imageFrameRef} className="relative h-screen w-full">
           <div className="about-image mask-clip-path z-20">
             <img
