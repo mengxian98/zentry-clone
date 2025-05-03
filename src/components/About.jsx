@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  const imageFrameRef = useRef(null);
+
+  useGSAP(() => {
+    const clipAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: imageFrameRef.current,
+        start: "center center",
+        end: "+=1000 center",
+        scrub: 0.5,
+        pin: true,
+        pinSpacing: true,
+      },
+    });
+    clipAnimation.to(".mask-clip-path", {
+      borderRadius: 0,
+      width: "100%",
+      height: "100%",
+      top: 0,
+    });
+  });
+
   return (
     <div className="min-h-screen w-full">
       <div className="flex flex-col items-center justify-between text-center pt-56">
@@ -14,8 +40,8 @@ const About = () => {
             largest shared adventure
           </h3>
         </div>
-        <div className="relative h-screen w-full">
-          <div className="about-image mask-clip-path">
+        <div ref={imageFrameRef} className="relative h-screen w-full">
+          <div className="about-image mask-clip-path z-20">
             <img
               src="./img/about.webp"
               className="absolute left-0 top-0 size-full object-cover"
