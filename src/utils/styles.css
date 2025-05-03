@@ -13,11 +13,24 @@
     @apply origin-center object-cover object-center;
   }
 
+  .about-image {
+    @apply absolute top-20 left-1/2 translate-x-[-50%] h-[65vh] w-[50vw] md:w-[30vw] overflow-hidden rounded-3xl;
+  }
+
+  .about-subtext {
+    @apply absolute bottom-25 left-1/2 translate-x-[-50%] w-[300px] md:w-[500px] font-circular text-sm;
+  }
+
   .mask-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .special-font b {
     font-feature-settings: "ss01" on;
+  }
+
+  .animated-title {
+    transform: translate3d(-100px, 30px, 20px) rotateX(-12deg) rotateY(50deg);
+    opacity: 0;
   }
 }
