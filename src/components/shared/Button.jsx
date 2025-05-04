@@ -1,12 +1,27 @@
-const Button = ({ buttonClass, text, leadingIcon, trailingIcon }) => {
+const Button = ({
+  size = "medium",
+  text,
+  leadingIcon,
+  trailingIcon,
+  buttonClass = "",
+  ...rest
+}) => {
+  const buttonClassBySize = () => {
+    switch (size) {
+      case "small":
+        return "text-[10.5px] gap-2 px-5 py-2";
+      case "medium":
+      default:
+        return "text-xs gap-3 px-7 py-3";
+    }
+  };
   return (
     <button
-      className={`flex gap-3 text-xs text-black bg-violet-50 cursor-pointer rounded-full px-4 py-3 ${buttonClass}`}
+      className={`flex items-center ${buttonClassBySize()} ${buttonClass}`}
+      {...rest}
     >
       {leadingIcon}
-      <span className="font-general font-semibold uppercase tracking-wide">
-        {text}
-      </span>
+      <span>{text}</span>
       {trailingIcon}
     </button>
   );

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer components {
+  button {
+    @apply font-general font-semibold uppercase tracking-wide text-black bg-violet-50 cursor-pointer rounded-full;
+  }
+}
+
 @layer utilities {
   .absolute-center {
     @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
