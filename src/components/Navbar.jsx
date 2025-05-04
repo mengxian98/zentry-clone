@@ -9,11 +9,58 @@ const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
 const Navbar = () => {
   const audioRef = useRef(null);
+  const navHeaderRef = useRef(null);
+
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isNavVisible, setIsNavVisible] = useState(true);
   const [audioPlay, setAudioPlay] = useState(false);
+
+  const toggleTransparentBg = (transparent) => {
+    if (transparent && navHeaderRef.current.classList.contains("bg-black")) {
+      navHeaderRef.current.classList.remove("bg-black");
+      navHeaderRef.current.classList.add("bg-transparent");
+    }
+    if (!transparent && !navHeaderRef.current.classList.contains("bg-black")) {
+      navHeaderRef.current.classList.remove("bg-transparent");
+      navHeaderRef.current.classList.add("bg-black");
+    }
+  };
+
+  const toggleNavbarVisibility = () => {
+    toggleTransparentBg(window.scrollY == 0 && lastScrollY > window.scrollY);
+    setIsNavVisible(window.scrollY < lastScrollY);
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleNavbarVisibility);
+    return () => window.removeEventListener("scroll", toggleNavbarVisibility);
+  });
 
   useEffect(() => {
     audioPlay ? audioRef.current.play() : audioRef.current.pause();
   }, [audioPlay]);
+
+  useGSAP(
+    () => {
+      if (isNavVisible && lastScrollY != 0) {
+        gsap.from(navHeaderRef.current, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+          onStart: () => navHeaderRef.current.classList.remove("hidden"),
+        });
+      } else if (!isNavVisible) {
+        gsap.to(navHeaderRef.current, {
+          opacity: 0,
+          duration: 0.3,
+          ease: "circ.out",
+          onComplete: () => navHeaderRef.current.classList.add("hidden"),
+        });
+      }
+    },
+    { dependencies: [isNavVisible], revertOnUpdate: true }
+  );
 
   useGSAP(
     () => {
@@ -45,7 +92,10 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 left-0 w-full z-80">
-      <header className="absolute top-3 left-[1%] w-[98%] rounded-sm bg-black">
+      <header
+        ref={navHeaderRef}
+        className="nav-header absolute top-3 left-[1%] w-[98%] rounded-sm bg-transparent"
+      >
         <nav className="h-8 lg:h-12 xl:h-16  px-4 lg:px-8 flex items-center justify-between">
           <div className="h-full flex items-center gap-4">
             <img src="./img/logo.png" alt="logo" className="h-3/4 mr-4" />

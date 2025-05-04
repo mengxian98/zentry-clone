@@ -35,6 +35,10 @@
     @apply absolute bottom-25 left-1/2 translate-x-[-50%] w-[300px] md:w-[500px] font-circular text-sm;
   }
 
+  .nav-header {
+    transition: background-color 1.2s ease-in-out 450ms;
+  }
+
   .mask-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
