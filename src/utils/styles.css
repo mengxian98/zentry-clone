@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
+@layer components {
+  button {
+    @apply font-general font-semibold uppercase tracking-wide text-black bg-violet-50 cursor-pointer rounded-full;
+  }
+
+  a:hover {
+    @apply cursor-default;
+  }
+}
+
 @layer utilities {
+  .audio-indicator {
+    @apply w-px h-[3px] bg-blue-75;
+  }
+
   .absolute-center {
     @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
   }
@@ -19,6 +33,10 @@
 
   .about-subtext {
     @apply absolute bottom-25 left-1/2 translate-x-[-50%] w-[300px] md:w-[500px] font-circular text-sm;
+  }
+
+  .nav-header {
+    transition: background-color 1.2s ease-in-out 450ms;
   }
 
   .mask-clip-path {
