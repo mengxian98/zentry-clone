@@ -1,5 +1,6 @@
 import { BiSolidGame } from "react-icons/bi";
 import IconProvider from "./shared/IconProvider";
+import BentoTilt from "./shared/BentoTilt";
 import Bento from "./shared/Bento";
 
 const Features = () => {
@@ -15,56 +16,68 @@ const Features = () => {
       </div>
       <div>
         <div className="h-[45vh] lg:h-[60vh]">
-          <Bento
-            title="Radiant"
-            description="A visually stunning journey through a luminous world filled with vibrant landscapes, magical powers, and awe-inspiring creatures."
-            backgroundSrc="./videos/feature-1.mp4"
-            isComingSoon
-            containerClass="border-zinc-800"
-          />
+          <BentoTilt>
+            <Bento
+              title="Radiant"
+              description="A visually stunning journey through a luminous world filled with vibrant landscapes, magical powers, and awe-inspiring creatures."
+              backgroundSrc="./videos/feature-1.mp4"
+              isComingSoon
+              containerClass="border-zinc-800"
+            />
+          </BentoTilt>
         </div>
         <div className="grid grid-rows-3 gap-y-5 my-5 h-[135vh] md:grid-cols-2 md:grid-rows-2 md:gap-10 md:my-10 md:h-[90vh]">
-          <Bento
-            title="Zigma"
-            description="Cutting-edge NFT innovation grants you true ownership of the stories you shape."
-            backgroundSrc="./videos/feature-2.mp4"
-            isComingSoon
-            containerClass="border-zinc-800 md:row-span-2"
-          />
-          <Bento
-            title="Nexus"
-            description="Players and AI collaborate to compete in an ever-evolving universe."
-            backgroundSrc="./videos/feature-3.mp4"
-            isComingSoon
-            isSiteLaunched
-            containerClass="border-zinc-800"
-          />
-          <Bento
-            title="Azul"
-            description="Meet Azul, your loyal AI companion - guiding you through enchanted realms to conquer epic puzzles."
-            backgroundSrc="./videos/feature-4.mp4"
-            isComingSoon
-            containerClass="border-zinc-800"
-          />
+          <BentoTilt containerClass="md:row-span-2">
+            <Bento
+              title="Zigma"
+              description="Cutting-edge NFT innovation grants you true ownership of the stories you shape."
+              backgroundSrc="./videos/feature-2.mp4"
+              isComingSoon
+              containerClass="border-zinc-800"
+            />
+          </BentoTilt>
+          <BentoTilt>
+            <Bento
+              title="Nexus"
+              description="Players and AI collaborate to compete in an ever-evolving universe."
+              backgroundSrc="./videos/feature-3.mp4"
+              isComingSoon
+              isSiteLaunched
+              containerClass="border-zinc-800"
+            />
+          </BentoTilt>
+          <BentoTilt>
+            <Bento
+              title="Azul"
+              description="Meet Azul, your loyal AI companion - guiding you through enchanted realms to conquer epic puzzles."
+              backgroundSrc="./videos/feature-4.mp4"
+              isComingSoon
+              containerClass="border-zinc-800"
+            />
+          </BentoTilt>
         </div>
         <div className="grid grid-rows-2 gap-5 h-[70vh] sm:grid-rows-none sm:grid-cols-2 sm:h-[32vh] md:gap-10 xl:h-[45vh]">
-          <div className="h-full relative special-font font-zentry bg-violet-300 text-black text-6xl leading-12 xl:text-7xl xl:leading-16 border-transparent rounded-lg p-8">
-            <p>
-              M<b>o</b>re
-            </p>
-            <p>
-              Co<b>m</b>ing
-            </p>
-            <p>
-              S<b>o</b>on.
-            </p>
-            <div className="absolute right-5 bottom-5 rotate-345">
-              <IconProvider value={{ size: "3rem" }}>
-                <BiSolidGame />
-              </IconProvider>
+          <BentoTilt>
+            <div className="h-full relative special-font font-zentry bg-violet-300 text-black text-6xl leading-12 xl:text-7xl xl:leading-16 border-transparent rounded-lg p-8">
+              <p>
+                M<b>o</b>re
+              </p>
+              <p>
+                Co<b>m</b>ing
+              </p>
+              <p>
+                S<b>o</b>on.
+              </p>
+              <div className="absolute right-5 bottom-5 rotate-345">
+                <IconProvider value={{ size: "3rem" }}>
+                  <BiSolidGame />
+                </IconProvider>
+              </div>
             </div>
-          </div>
-          <Bento backgroundSrc="./videos/feature-5.mp4" autoPlayBackground />
+          </BentoTilt>
+          <BentoTilt>
+            <Bento backgroundSrc="./videos/feature-5.mp4" autoPlayBackground />
+          </BentoTilt>
         </div>
       </div>
     </div>
