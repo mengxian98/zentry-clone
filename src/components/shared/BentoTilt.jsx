@@ -1,30 +1,29 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { scale, tilt } from "../utils/animations";
 
 const BentoTilt = ({ containerClass, children, ...rest }) => {
   const containerRef = useRef(null);
-  const [containerStyle, setContainerStyle] = useState({});
+
+  const handleMouseLeave = () => {
+    gsap.to(containerRef.current, {
+      scale: 1,
+      rotateX: 0,
+      rotateY: 0,
+      ease: "power1.out",
+    });
+  };
 
   const handleMouseMove = (e) => {
-    const { left, top, height, width } =
-      containerRef.current.getBoundingClientRect();
-    const relativeX = (e.clientX - left) / width;
-    const relativeY = (e.clientY - top) / height;
-
-    const tiltX = (relativeX - 0.5) * 5;
-    const tiltY = (relativeY - 0.5) * -5;
-
-    setContainerStyle({
-      transform: `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(0.97)`,
-      transition: "transform 80ms ease-in-out",
-    });
+    tilt(e, containerRef, 5);
+    scale(containerRef, 0.97);
   };
 
   return (
     <div
       ref={containerRef}
-      style={containerStyle}
       className={`h-full cursor-grab ${containerClass}`}
-      onMouseLeave={() => setContainerStyle({})}
+      onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       {...rest}
     >
