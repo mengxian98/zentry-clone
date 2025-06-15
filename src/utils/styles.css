@@ -68,6 +68,26 @@
     }
   }
 
+  .contact-image-fire {
+    clip-path: polygon(14% 0%, 80% 0%, 76% 77%, 20% 97%);
+  }
+
+  .contact-image-stone {
+    clip-path: polygon(23% 1%, 85% 32%, 98% 100%, 0% 78%);
+
+    @variant sm {
+      clip-path: polygon(36% 0%, 84% 28%, 77% 125%, 0% 93%);
+    }
+  }
+
+  .contact-image-swordsman {
+    clip-path: polygon(28% 7%, 95% 26%, 77% 91%, 10% 84%);
+
+    @variant sm {
+      clip-path: polygon(22% 0%, 100% 16%, 75% 100%, 0% 96%);
+    }
+  }
+
   .special-font b {
     font-feature-settings: "ss01" on;
   }
