@@ -43,6 +43,31 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+  .story-image {
+    clip-path: polygon(34% 18%, 75% 13%, 78% 60%, 22% 65%);
+    transition: clip-path 800ms ease-in-out;
+
+    img {
+      object-position: 35%;
+    }
+
+    @variant md {
+      clip-path: polygon(21% 12%, 75% 24%, 91% 63%, 23% 73%);
+
+      img {
+        object-position: 25%;
+      }
+    }
+
+    @variant xl {
+      clip-path: polygon(24% 16%, 73% 24%, 88% 68%, 18% 84%);
+
+      img {
+        object-position: left;
+      }
+    }
+  }
+
   .special-font b {
     font-feature-settings: "ss01" on;
   }
