@@ -18,7 +18,7 @@ const Story = () => {
         <img
           ref={imageRef}
           className="h-full object-cover"
-          src="/img/entrance.webp"
+          src="./img/entrance.webp"
           onMouseMove={(e) => tilt(e, imageRef, 15)}
         ></img>
       </div>
