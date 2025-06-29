@@ -74,7 +74,7 @@ const Hero = () => {
           autoPlay
           muted
           className="size-full video-center"
-          src={`/videos/hero-${currentVideoIndex}.mp4`}
+          src={`./videos/hero-${currentVideoIndex}.mp4`}
         />
 
         <video
@@ -83,7 +83,7 @@ const Hero = () => {
           muted
           ref={nextVideoPlayerRef}
           className="size-full video-center absolute top-0 left-0 invisible"
-          src={`/videos/hero-${currentVideoIndex}.mp4`}
+          src={`./videos/hero-${currentVideoIndex}.mp4`}
         />
 
         <div
@@ -94,7 +94,7 @@ const Hero = () => {
             loop
             muted
             className="video-center scale-150 size-64"
-            src={`/videos/hero-${nextVideoIndex}.mp4`}
+            src={`./videos/hero-${nextVideoIndex}.mp4`}
           />
         </div>
 
